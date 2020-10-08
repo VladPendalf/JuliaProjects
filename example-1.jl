@@ -1,3 +1,6 @@
+#Практика 1 / разбор задачи 2
+
+
 function mark_kross!(r::Robot) # - главная функция  
     for side in (HorizonSide(i) for i=0:3) # - перебор всех возможных направлений
         putmarkers!(r,side)
