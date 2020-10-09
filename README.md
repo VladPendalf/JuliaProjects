@@ -3,7 +3,7 @@
 Группа:
 1)Аллаярова Лилия Ренадовна
 2)Бундуки Владислав Вячеславович (vlad.bunduki@mail.ru) [https://github.com/VladPendalf/JuliaProjects]
-3)Варакин Даниил Витальевич 
+3)Варакин Даниил Витальевич [https://github.com/V-Daniil2-V/ZXC-Warrick-]
 4)Волошин Павел Дмитриевич
 5)Ганиев Абдулатиф Абдумуминович
 6)Гюльмамедов Глед Денисович [https://github.com/GlebKa4G/Robot_bot]
