@@ -1,24 +1,36 @@
-#Практикa 1
+#= ДАНО: Робот находится в произвольной клетке ограниченного прямоугольного поля без внутренних перегородок и маркеров.
 
+ РЕЗУЛЬТАТ: Робот — в исходном положении в центре прямого креста из маркеров, расставленных вплоть до внешней рамки.
 
-function mark_kross!(r::Robot) # - главная функция  
-    for side in (HorizonSide(i) for i=0:3) # - перебор всех возможных направлений
-        putmarkers!(r,side)
-        move_by_markers(r,inverse(side))
+ function main
+for side in (Nord,West, Sud, Ost)
+    маркировать в направлении side до упора и вернуть число сделанных шагов
+    сделать полученное число шагов в обратном направлении
+end
+
+ =#
+
+function mark_kross!(r::Robot)
+    for side in (Nord,West,Sud,Ost)
+        num_steps=get_num_steps_putmarkers!(r,side)
+        movements!(r,inverse(side),num_steps)
     end
     putmarker!(r)
 end
 
-# Всюду в заданном направлении ставит маркеры вплоть до перегородки, но в исходной клетке маркер не ставит
-putmarkers!(r::Robot,side::HorizonSide) = while isborder(r,side)==false 
-    move!(r,side)
-    putmarker!(r)
+invers(side::HorizonSide) = HorizonSide(mod(int(side) + 2,4)) 
+
+function get_num_steps_putmarkers!(r::Robot,side::HorizonSide)
+    num_steps=0
+    while isborder(r, side) == false
+        move!(r,side)
+        putmarker!(r)
+        num_steps += 1
+    end
+    return num_steps
 end
 
-# Перемещает робота в заданном направлении пока, пока он находится в клетке с маркером (в итоге робот окажется в клетке без маркера)
-move_by_markers(r::Robot,side::HorizonSide) = while ismarker(r)==true 
-    move!(r,side) 
-end
-
-# Возвращает направление, противоположное заданному
-inverse(side::HorizonSide) = HorizonSide(mod(Int(side)+2, 4))
+movements!(r::Robot,side::HorizonSide,num_steps::Int) =
+    for _ in 1:num_steps
+        move!(r,side)
+    end
