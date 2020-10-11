@@ -1,6 +1,6 @@
 # JuliaProjects
 КМБО-06-20
-# Группа:
+ Группа:
 # 1)Аллаярова Лилия Ренадовна
 # 2)Бундуки Владислав Вячеславович (vlad.bunduki@mail.ru) [https://github.com/VladPendalf/JuliaProjects]
 # 3)Варакин Даниил Витальевич [https://github.com/V-Daniil2-V/ZXC-Warrick-]
