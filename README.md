@@ -4,7 +4,7 @@
 # 1)Аллаярова Лилия Ренадовна
 # 2)Бундуки Владислав Вячеславович (vlad.bunduki@mail.ru) [https://github.com/VladPendalf/JuliaProjects]
 # 3)Варакин Даниил Витальевич [https://github.com/V-Daniil2-V/ZXC-Warrick-]
-# 4)Волошин Павел Дмитриевич
+# 4)Волошин Павел Дмитриевич [https://github.com/PavelKeep/Homeland]
 # 5)Ганиев Абдулатиф Абдумуминович
 # 6)Гюльмамедов Глед Денисович [https://github.com/GlebKa4G/Robot_bot]
 # 7)Денисов Сергей Алексеевич [https://github.com/STRIKER-oss/STRIKEer]
@@ -21,6 +21,6 @@
 # 18)Торосян Грант Амаякович [https://github.com/gran203/grant]
 # 19)Трескунов Платон Ильич
 # 20)Третьяков Виталий Максимович [https://github.com/Skanech/KMBO-06-20-VT]
-# 21)Файзулин Дамир Фаридович
+# 21)Файзулин Дамир Фаридович [https://github.com/DamirFayz/MIREA]
 # 22)Хайновский Данила Васильевич [https://github.com/Danila2002/dan]
 # 23)Халимов Арсений Кимович
