@@ -5,7 +5,7 @@
 # 2)Бундуки Владислав Вячеславович (vlad.bunduki@mail.ru) [https://github.com/VladPendalf/JuliaProjects]
 # 3)Варакин Даниил Витальевич [https://github.com/V-Daniil2-V/ZXC-Warrick-]
 # 4)Волошин Павел Дмитриевич [https://github.com/PavelKeep/Homeland]
-# 5)Ганиев Абдулатиф Абдумуминович
+# 5)Ганиев Абдулатиф Абдумуминович [https://github.com/Abdulchik/Study]
 # 6)Гюльмамедов Глед Денисович [https://github.com/GlebKa4G/Robot_bot]
 # 7)Денисов Сергей Алексеевич [https://github.com/STRIKER-oss/STRIKEer]
 # 8)Евстратов Алексей Викторович [https://github.com/Aleksey-elle/gh123]
