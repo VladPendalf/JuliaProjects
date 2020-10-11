@@ -1,5 +1,5 @@
 # JuliaProjects
-# КМБО-06-20
+КМБО-06-20
 # Группа:
 # 1)Аллаярова Лилия Ренадовна
 # 2)Бундуки Владислав Вячеславович (vlad.bunduki@mail.ru) [https://github.com/VladPendalf/JuliaProjects]
