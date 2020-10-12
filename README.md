@@ -19,7 +19,7 @@
 # 16)Сальников Марат Русланович [https://github.com/MaratikTak/Maratik]
 # 17)Сорокин Иван Андреевич [https://github.com/FEfdsa/ivan1]
 # 18)Торосян Грант Амаякович [https://github.com/gran203/grant]
-# 19)Трескунов Платон Ильич
+# 19)Трескунов Платон Ильич [https://github.com/Platon1237/mongol]
 # 20)Третьяков Виталий Максимович [https://github.com/Skanech/KMBO-06-20-VT]
 # 21)Файзулин Дамир Фаридович [https://github.com/DamirFayz/MIREA]
 # 22)Хайновский Данила Васильевич [https://github.com/Danila2002/dan]
