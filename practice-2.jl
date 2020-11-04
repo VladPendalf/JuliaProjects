@@ -135,7 +135,7 @@ function chess!(r::Robot)
     if ((num_hor % 2) == 0) #если слево расстояние четна
         if ((num_vert % 2) == 0) # если вертикаль четна
             putmarks2!(r,side)
-        else # если вертикаль не четна
+        else # если вертикаль нечетна
             putmarks1!(r,side)
         end
     else
