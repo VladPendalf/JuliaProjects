@@ -13,12 +13,12 @@ end
 function mark_kross!(r::Robot)
     for side in (Nord,West,Sud,Ost)
         num_steps=get_num_steps_putmarkers!(r,side)
-        movements!(r,inverse(side),num_steps)
+        movements!(r,invers(side),num_steps)
     end
     putmarker!(r)
 end
 
-invers(side::HorizonSide) = HorizonSide(mod(int(side) + 2,4)) 
+invers(side::HorizonSide) = HorizonSide(mod(Int(side) + 2,4)) 
 
 function get_num_steps_putmarkers!(r::Robot,side::HorizonSide)
     num_steps=0

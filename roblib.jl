@@ -39,3 +39,16 @@ function moves!(r::Robot,side::HorizonSide)
     end
     return num_steps
 end
+
+# 6 - ф-ия {Дойти до стороны, двигаясь змейкой вверх-вниз и вернуть последнее перед остановкой направление}
+function find_border!(r::Robot, direction_to_border::HorizonSide, direction_of_movement::HorizonSide)
+    while isborder(r,direction_to_border)==false  
+        if isborder(r,direction_of_movement)==false
+            move!(r,direction_of_movement)
+        else
+            move!(r,direction_to_border)
+            direction_of_movement=inverse(direction_of_movement)
+        end
+    end
+    #УТВ: непосредственно справа от Робота - внутренняя пергородка
+end
