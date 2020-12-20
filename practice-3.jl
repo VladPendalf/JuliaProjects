@@ -3,8 +3,10 @@
 
 #Задача 10 - выполнена
 #Задача 11 - не понял условие?
-#Задача 12 - не понял условие?
+#Задача 12 - task12.jl
 #Задача 13 - выполнена
+
+include("roblib.jl")
 
 #=Задача 10 
 ДАНО: Робот - в юго-западном углу поля, на котором расставлено некоторое количество маркеров
@@ -56,6 +58,7 @@ end
 начала координат в левом нижнем углу поля, например)
 =#
 
+# include("task12.jl")
 
 
 #=Задача 13 
@@ -66,14 +69,19 @@ end
 function mark_kross_x(r::Robot)
     for side in ((Nord,Ost),(Sud,Ost),(Sud,West),(Nord,West))
         putmarkers!(r,side)
-        move_by_markers!(r,inverse(side))
+        move_by_markers!(r,invers(side))
     end
     putmarker!(r)
 end
 
-putmarkers!(r::Robot,side::NTuple{2,HorizonSide}) = while isborder(r,side)==false move!(r,side) end
+function putmarkers!(r::Robot,side::NTuple{2,HorizonSide})
+    while isborder(r,side)==false  
+        move!(r,side)
+        putmarker!
+    end 
+end
 
-isborder(r::Robot,side::NTuple{2,HorizonSide}) = (isborder(r,side[1] || isborder(r,side[2]))
+HorizonSideRobots.isborder(r::Robot,side::NTuple{2,HorizonSide}) = (isborder(r,side[1]) || isborder(r,side[2]))
 
 HorizonSideRobots.move!(r::Robot, side::NTuple{2,HorizonSide}) = for s in side move!(r,s) end
 # Здесь мы переопределяем одноименную стандартную команду Робота, определенную в модуле HorizonSideRobots 
@@ -81,6 +89,6 @@ HorizonSideRobots.move!(r::Robot, side::NTuple{2,HorizonSide}) = for s in side m
 # в стандартной команде), и поэтому в этом определении нам пришлось использовать составное имя: 
 # HorizonSideRobots.move!
 
-move_by_markers!(r::Robot,side::NTuple{2,HorizonSide}) = while ismarker(r) move!(r,side) end
+move_by_markers!(r::Robot,side::NTuple{2,HorizonSide}) = while ismarker(r)==true move!(r,side) end
 
-inverse(side::NTuple{2,HorizonSide}) = (inverse(side[1]),inverse(side[2]))
+invers(side::NTuple{2,HorizonSide}) = (invers(side[1]),invers(side[2]))

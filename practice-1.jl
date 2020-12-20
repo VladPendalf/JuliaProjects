@@ -5,7 +5,7 @@
 #Задача 2 - example-2.jl
 #Задача 3 - practice-1.jl
 #Задача 4 - practice-1.jl
-#Задача 5 - выполнена 
+#Задача 5 - practice-1.jl
 
 include("roblib.jl")
     #=
@@ -21,7 +21,7 @@ include("roblib.jl")
 РЕЗУЛЬТАТ: Робот - в исходном положении, и все клетки поля промакированы =#
 
 #Задача 3
-function full_field_in_marks!(r::Robot) #Перевод - "Все поле в маркерах"
+function full_field_in_marks!(r::Robot) 
     num_vert = get_num_steps_movements!(r, Sud)
     num_hor = get_num_steps_movements!(r, West)
     #УТВ: Робот в юго-западном углу
@@ -132,43 +132,22 @@ end
 #= 5) ДАНО: Робот - в произвольной клетке ограниченного прямоугольного поля, на котором могут находиться также внутренние прямоугольные 
 перегородки (все перегородки изолированы друг от друга, прямоугольники могут вырождаться в отрезки)
 РЕЗУЛЬТАТ: Робот - в исходном положении и в углах поля стоят маркеры =#
-
 function mark_angles(r)
-    num_steps = through_rectangles_into_angle(r,(Sud,West))
+    num_steps=[]
+    while isborder(r,Sud)==false || isborder(r,West) == false # Робот - не в юго-западном углу
+        push!(num_steps, moves!(r, West))
+        push!(num_steps, moves!(r, Sud))
+    end
     # УТВ: Робот - в юго-западном углу и в num_steps - закодирован пройденный путь
     for side in (Nord,Ost,Sud,West)
-        moves!(r,side) # возвращаемый результат игнорируется
+        movements!(r,side)
         putmarker!(r)
     end
     # УТВ: Маркеры поставлены и Робот - в юго-западном углу
-    move!(r,(Ost,Nord),num_steps)
+
+    for (i,n) in enumerate(num_steps)
+        side = isodd(i) ? Nord : Ost # odd - нечетный
+        movements!(r,side,n)
+    end
     #УТВ: Робот - в исходном положении
-end
-
-"""
-    through_rectangles_into_angle(r,angle::NTuple{2,HorizonSide})
-
--- Перемещает Робота в заданный угол, прокладывая путь межу внутренними прямоугольными перегородками и возвращает массив, содержащий числа шагов в каждом из заданных направлений на этом пути
-"""
-function through_rectangles_into_angle(r,angle::NTuple{2,HorizonSide})
-    num_steps=[]
-    while isborder(r,angle[1])==false || isborder(r,angle[2]) # Робот - не в юго-западном углу
-        push!(num_steps, moves!(r, angle[2]))
-        push!(num_steps, moves!(r, angle[1]))
-    end
-    return num_steps
-end
-
-"""
-    moves!(r,sides,num_steps::Vector{Int})
-
--- перемещает Робота по пути, представленного двумя последовательностями, sides и num_steps 
--- sides - содержит последовательность направлений перемещений
--- num_steps - содержит последовательность чисел шагов в каждом из этих направлений, соответственно; при этом, если длина последовательности sides меньше длины последовательности num_steps, то предполагается, что последовательность sides должна быть продолжена периодически       
-"""
-function moves!(r,sides,num_steps::Vector{Int})
-    for (i,n) in enumerate(reverse!(num_steps))
-        moves!(r, sides[mod(i-1, length(sides))+1], n) # - это не рекурсия (не вызов функцией самой себя), это вызов другой, ранее определенной функции
-        # выражение индекса массива mod(i-1, length(sides))+1 обеспечисвает периодическое продолжение последовательности из вектора sides до длины вектора num_steps 
-    end
 end

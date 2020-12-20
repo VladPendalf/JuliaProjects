@@ -3,7 +3,7 @@
 
 #Задача 6 - выполнен
 #Задача 7 - выполнен
-#Задача 8 - выполнен (пытался сделать, через проход в обе стороны, но в итоге - сделал по тупому)
+#Задача 8 - выполнен
 #Задача 9 - выполнен
 
 #= Задача 6 
@@ -135,7 +135,7 @@ function chess!(r::Robot)
     if ((num_hor % 2) == 0) #если слево расстояние четна
         if ((num_vert % 2) == 0) # если вертикаль четна
             putmarks2!(r,side)
-        else # если вертикаль нечетна
+        else # если вертикаль не четна
             putmarks1!(r,side)
         end
     else
@@ -204,14 +204,16 @@ function robot_under_door!(r::Robot)
 end
 
 function search_door!(r::Robot,side::HorizonSide)
-    while (isborder(r,side) == false)
-        if (isborder(r,Nord)== true)
-            move!(r,side)
-        else
-            break
-        end
+    i = 1
+    while (isborder(r,Nord) == true)
+    m = 0
+            while (m != i)
+                move!(r,side)
+                m+=1
+            end
+            i+=1
+            side = invers(side)
     end
-    search_door!(r,invers(side))
 end
 
 #= Задача 9
