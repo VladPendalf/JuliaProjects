@@ -17,11 +17,11 @@ include("roblib.jl")
 =#
 
 
-#module NNChessMarker
- #   using HorizonSideRobots
-  #  import Main.inverse
+module NNChessMarker
+    using HorizonSideRobots
+    import Main.inverse
 
-   # export mark_chess
+   export mark_chess
 
     X_COORDINATE=0
     Y_COORDINATE=0
@@ -68,4 +68,4 @@ include("roblib.jl")
         end
         move!(r,side)
     end
-#end
+end
