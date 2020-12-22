@@ -90,45 +90,34 @@ end
 =#
 
 function stairs!(r)
-    
-    num_hor = moves!(r, Ost)
-    num_vert = moves!(r, Sud)
-    putmarker!(r)
-    #Правый нижний угол
-
-    lenght_string = get_num_steps_movements!(r, West)
-    #Длина нижнего ряда + идем в левый нижний угол
-
-    stairs_marker!(r::Robot,lenght_string::Int)
-    #Лестница из маркеров
-
     movements!(r,Sud)
-    movements!(r, Ost)
-    #Робот в юго-восточном углу
-
-    #Возвращение в первоначальную позицию
-    movements!(r,West,num_hor)
-    movements!(r,Nord,num_vert)
-
+    movements!(r,West)
+    
+    side = Ost
+    num_hor = moves!(r,side)
+    movements!(r,West)
+    mark_up!(r,num_hor)
 end
 
-function stairs_marker!(r,lenght_string)  #Лестница из маркеров
+function mark_up!(r::Robot,size::Int)
     i = 0
-        while (i <= lenght_string) #идем на длину нижней строки
-            if (isborder(r,Ost) == false)# если нет преграды, то
-                putmarker!(r) #ставим маркер
-                move!(r,Ost)#делаем шаг
-            end
-            i+=1#увеличиваем счетчик на 1
+    while (1 <= size)
+        for _ in 1:size
+            move!(r,Ost)
+            putmarker!(r)
         end
-        movements!(r,West)#возвращаемся в начало строки
-        if (isborder(r,Nord)== false)#делаем шаг на верх
-            move!(r,Nord)
-            lenght_string -=1#уменьшаем максимальную длину строки
-            stairs_marker!(r,lenght_string)#идем по 2-ому кругу
+        if (isborder(r,West) == false)
+            movements!(r,West)
+            putmarker!(r)
         end
+        if (isborder(r,Nord) == false)
+        move!(r,Nord)
+        size = size - 1
+        else
+            break
+        end
+    end
 end
-
 
 #= 5) ДАНО: Робот - в произвольной клетке ограниченного прямоугольного поля, на котором могут находиться также внутренние прямоугольные 
 перегородки (все перегородки изолированы друг от друга, прямоугольники могут вырождаться в отрезки)
