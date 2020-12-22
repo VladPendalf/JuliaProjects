@@ -93,6 +93,7 @@ function stairs!(r)
     
     num_hor = moves!(r, Ost)
     num_vert = moves!(r, Sud)
+    putmarker!(r)
     #Правый нижний угол
 
     lenght_string = get_num_steps_movements!(r, West)
