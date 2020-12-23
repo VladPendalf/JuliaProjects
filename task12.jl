@@ -21,7 +21,7 @@ module NNChessMarker
     using HorizonSideRobots
     import Main.inverse
 
-   export mark_chess
+    export mark_chess
 
     X_COORDINATE=0
     Y_COORDINATE=0
