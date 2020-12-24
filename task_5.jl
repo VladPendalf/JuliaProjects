@@ -27,7 +27,7 @@ function mark_angles(r)
     # Маркеры поставлены и Робот - в юго-западном углу
 
     for (i,n) in enumerate(num_steps) # enumerate() - дает не только значение элемента, но и число итераций на данный момент
-        side = isodd(i) ? Nord : Ost # isodd() == true -> если число нечетное , isodd() == false -> если четное
+        side = isodd(i) ? Ost : Nord # isodd() == true -> если число нечетное , isodd() == false -> если четное
         movements!(r,side,n)
     end
     # Робот - в исходном положении
