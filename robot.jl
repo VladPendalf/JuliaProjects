@@ -539,6 +539,6 @@ using .HorizonSideRobot
 
 const ROBOT_VERSION = "2020 09 08 17-01"
 
-#inverse(side::HorizonSide) = HorizonSide(mod(Int(side)+2, 4)) 
-#left(side::HorizonSide) = HorizonSide(mod(Int(side)+1, 4))
-#right(side::HorizonSide) = HorizonSide(mod(Int(side)-1, 4))
+invers(side::HorizonSide) = HorizonSide(mod(Int(side)+2, 4)) 
+left(side::HorizonSide) = HorizonSide(mod(Int(side)+1, 4))
+right(side::HorizonSide) = HorizonSide(mod(Int(side)-1, 4))
