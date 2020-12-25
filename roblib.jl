@@ -1,6 +1,7 @@
 # Универсальные ф-ии из всех задач
 
-#=module  StartBack
+module  StartBack
+    using HorizonSideRobots
     export move_to_start!, move_to_back!
     NUM_STEPS=Int[]
     BACK_SIDE=(Nord,Ost)
@@ -13,7 +14,6 @@
     
     move_to_back!(robot) = for (i,num) in arange(NUM_STEPS) movements!(robot,BACK_SIDE[i],num) end
 end
-=#
 
 # 1 - ф-ия {инверсия направления}
 invers(side::HorizonSide) = HorizonSide(mod(Int(side) + 2,4)) #инверсия
